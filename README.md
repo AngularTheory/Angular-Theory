@@ -388,6 +388,208 @@ matplotlib>=3.7
 ```
 
 
+---
+
+
+
+∆ngular Theory 0.0 - Documentation Complète
+
+▶ Structure du Projet
+
+angular-theory/
+├── docs/
+│   ├── THEORY.md       # Fondements théoriques détaillés
+│   ├── EXAMPLES.md     # Cas d'utilisation concrets
+│   └── FAQ.md          # Questions fréquentes
+├── tests/
+│   └── test_core.py    # Tests unitaires
+├── data/
+│   ├── sample.csv      # Jeu de données exemple
+│   └── jwst_sample.h5  # Format Big Data
+└── angular_theory.py   # Code principal
+
+▶ Exemples d’Utilisation
+
+Analyse de Hiérarchie de Masse des Neutrinos
+
+# Charger les données NuFIT 2024
+self.data_manager.load_data("nufit2024.csv")
+
+# Paramètres de base
+params = {
+    'Δθ₀': 0.01, 
+    'α': 1.5,
+    'β': 1.2,
+    'ε': 0.5,
+    'δ': 0.1
+}
+
+# Lancer une simulation Monte Carlo
+self.monte_carlo_runner = MonteCarloScheduler(params, 1000)
+
+✔ Résultat Attendu : Distribution de probabilité des masses des neutrinos compatible avec les données expérimentales.
+
+
+---
+
+Estimation des Paramètres d’Ondes Gravitationnelles
+
+# Activer l'accélération GPU
+self.optimize_performance = True
+
+# Analyser les données LIGO/Virgo
+data = self.data_manager.load_gravitational_data("GW150914.hdf5")
+self.plots['gravitational'].update_plot(data)
+
+✔ Sortie : Courbe de corrélation angulaire avec intervalles de confiance à 90%.
+
+
+---
+
+▶ FAQ
+
+Python introuvable
+
+Si python ou python3 ne fonctionne pas, vérifiez :
+
+python --version
+python3 --version
+
+Si Python n'est pas installé, téléchargez-le depuis python.org.
+
+Erreur d’installation des dépendances
+
+Si pip install -r requirements.txt échoue :
+
+python -m ensurepip --default-pip
+pip install --upgrade pip
+pip install nom_du_module
+
+Pourquoi mes simulations Monte Carlo sont-elles lentes ?
+
+Activez le mode distribué pour accélérer le traitement :
+
+app.run_monte_carlo(distributed=True, n_workers=4)
+
+Comment citer ce travail ?
+
+@software{Souday_Angular_Theory_2024,
+  author = {Souday, David},
+  license = {CC-BY-NC-ND 4.0},
+  title = {{∆ngular Theory 0.0}},
+  url = {https://doi.org/10.5281/zenodo.14996542},
+  version = {5.0},
+  year = {2024}
+}
+
+
+---
+
+▶ Ressources Supplémentaires
+
+Publications Clés
+
+1. Cartan, É. "Sur les variétés à connexion affine" (1923)
+
+
+2. Souday, D. "Angular Quantization in Fundamental Physics" (2024)
+
+
+
+
+---
+
+▶ Feuille de Route
+
+Version 6.0 (Q4 2024)
+
+Intégration des données Euclid
+
+Visualisation 3D interactive
+
+Support des calculateurs quantiques
+
+
+Version 7.0 (2025)
+
+Module cosmologique complet
+
+Interface Jupyter intégrée
+
+Optimisation multi-GPU
+
+
+
+---
+
+▶ Contributions
+
+Guide du Contributeur
+
+1. Forker le dépôt
+
+
+2. Créer une branche
+
+
+
+git checkout -b feature/ma-nouvelle-fonctionnalite
+
+3. Soumettre une Pull Request avec :
+
+
+
+Tests unitaires
+
+Documentation mise à jour
+
+Exemple d'utilisation
+
+
+
+---
+
+▶ Licence et Éthique
+
+Réserve d'Utilisation
+
+Ce travail et les résultats qui en découlent sont réservés à l'État français et à la recherche française.
+
+Conformité HCERES
+
+Le projet suit les recommandations du Haut Conseil de l'Évaluation de la Recherche et de l'Enseignement Supérieur.
+
+
+---
+
+▶ Conclusion
+
+∆ngular Theory 0.0 représente une avancée majeure dans l'unification des théories fondamentales par la quantification angulaire. Ses caractéristiques uniques :
+
+Unification quantique/relativiste
+
+Prédictions testables expérimentalement
+
+Architecture modulaire extensible
+
+
+Prochaines Étapes
+
+➤ Téléchargez la dernière version stable.
+➤ Explorez nos tutoriels interactifs.
+➤ Rejoignez la communauté scientifique.
+
+
+---
+
+📩 Pour toute question, contactez-nous à Souday.david
+
+ support@angular-theory.fr.
+
+
+
+
+
 
 
 
