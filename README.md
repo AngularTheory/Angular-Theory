@@ -471,12 +471,13 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 ---
 
 
+```markdown
 ## 🔗 Citations et Publications Clés
 
 ### ▶ Référence ∆ngular Theory 0.0
 
-📄 [DOI Zenodo: 10.5281/zenodo.14996542](https://doi.org/10.5281/zenodo.14996542)  
-📄 [DOI FigShare: 10.6084/m9.figshare.28551545](https://doi.org/10.6084/m9.figshare.28551545)  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14996542.svg)](https://doi.org/10.5281/zenodo.14996542)  
+📄 [DOI FigShare](https://doi.org/10.6084/m9.figshare.28551545) • [Accéder au dépôt FigShare](https://figshare.com/s/6099380acb683b8d0fd2)  
 📥 [Télécharger le préprint (PDF)](https://figshare.com/ndownloader/files/52767737)
 
 ```bibtex
@@ -489,28 +490,26 @@ app.run_monte_carlo(distributed=True, n_workers=4)
   url = {https://doi.org/10.5281/zenodo.14996542},
   note = {Préprint disponible sur FigShare et Zenodo}
 }
-
+```
 
 ---
 
-▶ Travaux Fondamentaux
+### ▶ Travaux Fondamentaux
 
-É. Cartan (1923)
-Sur les variétés à connexion affine
-🔗 DOI: 10.24033/asens.751 | 📄 Lire le PDF
+**É. Cartan (1923)**  
+[Sur les variétés à connexion affine](https://doi.org/10.24033/asens.751)  
+[📄 Lire le PDF](https://gallica.bnf.fr/ark:/12148/bpt6k3143v/f539.item)
 
-É. Cartan (1925)
-Sur les variétés à connexion affine (suite)
-🔗 DOI: 10.24033/asens.761 | 📄 Lire le PDF
+**É. Cartan (1925)**  
+[Sur les variétés à connexion affine (suite)](https://doi.org/10.24033/asens.761)  
+[📄 Lire le PDF](https://gallica.bnf.fr/ark:/12148/bpt6k3143v/f675.item)
 
-D. Souday (2025)
-Angular Quantization in Fundamental Physics
-🔗 DOI FigShare: 10.6084/m9.figshare.28551545
-🔗 DOI Zenodo: 10.5281/zenodo.14996542
+**D. Souday (2025)**  
+[Angular Quantization in Fundamental Physics](https://doi.org/10.6084/m9.figshare.28551545)  
+[🔗 Version Zenodo](https://doi.org/10.5281/zenodo.14996542)
 
-
-
-📩 Contact : souday.david.research@gmail.com
+📩 [Contact par email](mailto:souday.david.research@gmail.com)
+```
 
 
  ---
