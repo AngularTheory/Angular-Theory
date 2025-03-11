@@ -471,6 +471,8 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 
    ▶ Comment citer ce travail ?
 
+
+
 ```bibtex
 @software{Souday_Angular_Theory_2025,
   author = {Souday, David},
@@ -480,18 +482,19 @@ app.run_monte_carlo(distributed=True, n_workers=4)
   version = {5.0},
   year = {2025}
 }
+```
 
-▶ Ressources Supplémentaires
+## Ressources Supplémentaires
 
-Publications Clés
+### Publications Clés
 
-1. Cartan, É. "Sur les variétés à connexion affine" (1923)
+1. [Cartan, É. "Sur les variétés à connexion affine" (1923)](https://doi.org/10.1063/1.3062617)
+
+2. [Souday, D. "Angular Quantization in Fundamental Physics" (2025)](https://doi.org/10.6084/m9.figshare.28551545)
 
 
-2. Souday, D. "Angular Quantization in Fundamental Physics" (2025)
+--- 
 
-
----
 
 ▶ Feuille de Route
 
