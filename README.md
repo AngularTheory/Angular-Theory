@@ -1,6 +1,4 @@
-Voici la présentation révisée sans les étoiles et avec un formatage plus sobre :
 
----
 
 # ∆ngular Theory 0.0 - Interface Interactive  
 ➤ Version 5.0 | Simulation avancée en physique théorique  
@@ -471,19 +469,17 @@ Activez le mode distribué pour accélérer le traitement :
 
 app.run_monte_carlo(distributed=True, n_workers=4)
 
-Comment citer ce travail ?
+   ▶ Comment citer ce travail ?
 
-@software{Souday_Angular_Theory_2024,
+```bibtex
+@software{Souday_Angular_Theory_2025,
   author = {Souday, David},
   license = {CC-BY-NC-ND 4.0},
   title = {{∆ngular Theory 0.0}},
   url = {https://doi.org/10.5281/zenodo.14996542},
   version = {5.0},
-  year = {2024}
+  year = {2025}
 }
-
-
----
 
 ▶ Ressources Supplémentaires
 
@@ -492,9 +488,7 @@ Publications Clés
 1. Cartan, É. "Sur les variétés à connexion affine" (1923)
 
 
-2. Souday, D. "Angular Quantization in Fundamental Physics" (2024)
-
-
+2. Souday, D. "Angular Quantization in Fundamental Physics" (2025)
 
 
 ---
