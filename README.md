@@ -1,5 +1,3 @@
-
-
 # ∆ngular Theory 0.0 - Interface Interactive  
 ➤ Version 5.0 | Simulation avancée en physique théorique  
 
@@ -468,32 +466,40 @@ Pourquoi mes simulations Monte Carlo sont-elles lentes ?
 Activez le mode distribué pour accélérer le traitement :
 
 app.run_monte_carlo(distributed=True, n_workers=4)
+❇️❇️
+   ## 🔗 Citations et Publications Clés
 
-   ▶ Comment citer ce travail ?
-
-DOI | PDF
-(Torsion et courbure
-
+### ▶ Référence ∆ngular Theory 0.0
 ```bibtex
 @software{Souday_Angular_Theory_2025,
   author = {Souday, David},
-  license = {CC-BY-NC-ND 4.0},
-  title = {{∆ngular Theory 0.0}},
-  url = {https://doi.org/10.5281/zenodo.14996542},
+  title = {{∆ngular Theory 0.0: Unifying Physics Through Angular Quantization}},
+  year = {2025},
   version = {5.0},
-  year = {2025}
+  license = {CC-BY-NC-ND-4.0},
+  url = {https://doi.org/10.5281/zenodo.14996542},
+  note = {Préprint: [PDF](https://figshare.com/ndownloader/files/52767737)}
 }
-```
 
-## Ressources Supplémentaires
+▶ Travaux Fondamentaux
 
-### Publications Clés
+Cartan, É. (1923)
+Sur les variétés à connexion affine
+📖 DOI | 📄 PDF
+Fondements géométriques des connexions affines.
 
-1. [Cartan, É. "Sur les variétés à connexion affine" (1923)](https://doi.org/10.1063/1.3062617)
+Cartan, É. (1925)
+Sur les variétés à connexion affine (suite)
+📖 DOI | 📄 PDF
+Torsion, courbure et implications pour la quantification angulaire.
 
-2. [Souday, D. "Angular Quantization in Fundamental Physics" (2025)](https://doi.org/10.6084/m9.figshare.28551545)
+Souday, D. (2025)
+Angular Quantization in Fundamental Physics
+🔗 DOI: 10.6084/m9.figshare.28551545 | 🔗 DOI: 10.5281/zenodo.14996542
+Une approche unifiée de la quantification angulaire appliquée à la physique théorique.
 
 
+ ❇️❇️
 --- 
 
 
