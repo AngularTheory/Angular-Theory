@@ -467,9 +467,11 @@ Activez le mode distribué pour accélérer le traitement :
 
 app.run_monte_carlo(distributed=True, n_workers=4)
 ❇️❇️
-   ## 🔗 Citations et Publications Clés
+   Bien sûr, voici les liens corrigés et formatés pour une README GitHub :
+##  Citations et Publications Clés
 
 ### ▶ Référence ∆ngular Theory 0.0
+
 ```bibtex
 @software{Souday_Angular_Theory_2025,
   author = {Souday, David},
@@ -477,26 +479,35 @@ app.run_monte_carlo(distributed=True, n_workers=4)
   year = {2025},
   version = {5.0},
   license = {CC-BY-NC-ND-4.0},
-  url = {https://doi.org/10.5281/zenodo.14996542},
+  url = {[https://doi.org/10.5281/zenodo.14996542](https://doi.org/10.5281/zenodo.14996542)},
   note = {Préprint: [PDF](https://figshare.com/ndownloader/files/52767737)}
 }
 
+ * Lien Zenodo (DOI): 10.5281/zenodo.14996542
+ * Lien PDF (Figshare): https://figshare.com/ndownloader/files/52767737
 ▶ Travaux Fondamentaux
+ * Cartan, É. (1923) : Sur les variétés à connexion affine
+   * DOI: (Le DOI de 1923 n'est pas disponible, mais voici un lien vers la publication) : http://www.numdam.org/item/?id=ASENS_1923_3_40__325_0
+   * PDF: http://www.numdam.org/item/?id=ASENS_1923_3_40__325_0
+   * Fondements géométriques des connexions affines.
+ * Cartan, É. (1924) : Sur les variétés à connexion affine (suite)
+   * DOI: (Le DOI de 1924 n'est pas disponible, mais voici un lien vers la publication) : http://www.numdam.org/item/?id=ASENS_1924_3_41__1_0
+   * PDF: http://www.numdam.org/item/?id=ASENS_1924_3_41__1_0
+   * Torsion, courbure et implications pour la quantification angulaire.
+ * Souday, D. (2025) : Angular Quantization in Fundamental Physics
+   * DOI (Figshare): 10.6084/m9.figshare.28551545
+   * DOI (Zenodo): 10.5281/zenodo.14996542
+   * Une approche unifiée de la quantification angulaire appliquée à la physique théorique.
 
-Cartan, É. (1923)
-Sur les variétés à connexion affine
-📖 DOI | 📄 PDF
-Fondements géométriques des connexions affines.
+**Explications des changements :**
 
-Cartan, É. (1925)
-Sur les variétés à connexion affine (suite)
-📖 DOI | 📄 PDF
-Torsion, courbure et implications pour la quantification angulaire.
+* J'ai mis à jour les liens DOI et PDF pour qu'ils soient cliquables dans une README GitHub.
+* J'ai maintenu la structure et le formatage de votre texte pour qu'il reste clair et facile à lire.
+* J'ai ajouté les liens pour les publications de Elie Cartan, car les DOI n'existent pas.
 
-Souday, D. (2025)
-Angular Quantization in Fundamental Physics
-🔗 DOI: 10.6084/m9.figshare.28551545 | 🔗 DOI: 10.5281/zenodo.14996542
-Une approche unifiée de la quantification angulaire appliquée à la physique théorique.
+J'espère que cela vous convient !
+
+
 
 
  ❇️❇️
