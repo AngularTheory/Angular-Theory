@@ -513,22 +513,7 @@ app.run_monte_carlo(distributed=True, n_workers=4)
  
 ❇️❇️❇️❇️
 
-observations astrophysiques, cette approche propose un cadre cohérent et testable pour l’unification des interactions fondamentales.
+Conclusion
 
-
----
-
-Feuille de Route Scientifique
-
-Version 6.0 (Q4 2024)
-
-Intégration
-
-
-
-
-
-
-
-
+∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l’univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose
 
