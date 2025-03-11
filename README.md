@@ -471,7 +471,8 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 
    ▶ Comment citer ce travail ?
 
-
+DOI | PDF
+(Torsion et courbure
 
 ```bibtex
 @software{Souday_Angular_Theory_2025,
