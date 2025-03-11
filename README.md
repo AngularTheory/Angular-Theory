@@ -80,3 +80,52 @@ pip install PyQt6
 ```
 Puis relancez le programme.
 
+
+---
+
+
+## Simulation et Exploration
+
+∆ngular Theory 0.0 inclut un module de simulation avancé permettant de :
+
+- Lancer des calculs Monte Carlo pour tester la sensibilité des paramètres.
+- Exécuter des simulations parallèles optimisées avec Dask et Numba.
+- Visualiser en temps réel l’évolution des variables fondamentales.
+
+### Exécuter une simulation standard  
+Pour une exécution simple avec les paramètres par défaut, utilisez :  
+```bash
+python angular_theory.py --simulate
+```
+
+### Exécuter une simulation Monte Carlo  
+Pour analyser la sensibilité des paramètres avec 1000 simulations, utilisez :  
+```bash
+python angular_theory.py --monte-carlo --n 1000
+```
+(Vous pouvez modifier `--n 1000` pour ajuster le nombre de simulations.)
+
+### Mode Debug : Vérifier les logs et optimiser  
+Si des erreurs surviennent ou pour activer le mode verbose, utilisez :  
+```bash
+python angular_theory.py --simulate --verbose
+```
+
+### Visualiser les résultats  
+Les résultats peuvent être analysés en temps réel via l'interface :
+
+1. Lancez l’interface avec :  
+   ```bash
+   python angular_theory.py
+   ```
+
+2. Naviguez vers l’onglet "Simulation".
+3. Ajustez les paramètres et relancez la simulation.
+
+
+---
+
+
+
+
+
