@@ -470,13 +470,14 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 
 ---
 
+
 ## 🔗 Citations et Publications Clés
 
 ### ▶ Référence ∆ngular Theory 0.0
 
-[📄 DOI Zenodo: 10.5281/zenodo.14996542](https://doi.org/10.5281/zenodo.14996542)  
-[📄 DOI FigShare: 10.6084/m9.figshare.28551545](https://doi.org/10.6084/m9.figshare.28551545)  
-[📥 Télécharger le préprint (PDF)](https://figshare.com/ndownloader/files/52767737)
+📄 [DOI Zenodo: 10.5281/zenodo.14996542](https://doi.org/10.5281/zenodo.14996542)  
+📄 [DOI FigShare: 10.6084/m9.figshare.28551545](https://doi.org/10.6084/m9.figshare.28551545)  
+📥 [Télécharger le préprint (PDF)](https://figshare.com/ndownloader/files/52767737)
 
 ```bibtex
 @software{Souday_Angular_Theory_2025,
@@ -506,6 +507,10 @@ D. Souday (2025)
 Angular Quantization in Fundamental Physics
 🔗 DOI FigShare: 10.6084/m9.figshare.28551545
 🔗 DOI Zenodo: 10.5281/zenodo.14996542
+
+
+
+📩 Contact : souday.david.research@gmail.com
 
 
  ---
