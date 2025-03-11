@@ -514,7 +514,7 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 ❇️❇️❇️
 
 
-**∆ngular Theory 0.0** marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.
+# **∆ngular Theory 0.0** marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.
 
 **Contributions clés :**
 → Intégration des données Euclid, JWST et Planck pour une validation observationnelle
