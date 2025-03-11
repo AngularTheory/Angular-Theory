@@ -512,11 +512,6 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 ```
  
 ❇️❇️❇️❇️
-D'accord, voici la section reformulée avec des flèches pour une meilleure lisibilité :
-
-
----
-
 Conclusion
 
 ∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l’univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l’unification des interactions fondamentales.
@@ -524,56 +519,10 @@ Conclusion
 Feuille de Route Scientifique
 
 Version 6.0 (Q4 2024)
-➤ Intégration des données Euclid : Interface avec les catalogues photométriques de la mission spatiale ESA
-➤ Visualisation topologique : Module d’analyse de variétés différentielles (Cartan-API)
-➤ Calcul tensoriel distribué : Support MPI/CUDA pour architectures HPC
 
-Version 7.0 (2025)
-➤ Extension cosmologique : Intégration des contraintes Planck 2025
-➤ Optimisation algébrique : Implémentation des algorithmes Gröbner
-➤ Validation expérimentale : Pipeline CERN-LHC (ATLAS/CMS)
-
-Contributions Collaboratives
-
-Processus standard conforme aux normes INRIA
-➤ Fork du dépôt principal
-➤ Création de branche thématique
-➤ Soumission de Pull Request nécessitant :
-➤ Tests de non-régression (benchmark NumPy)
-➤ Documentation LaTeX conforme au template CNRS
-➤ Vérification par le comité scientifique
-
-Gouvernance et Éthique
-
-Clause de souveraineté (Art. L. 111-1 Code de la Recherche)
-➤ Propriété intellectuelle réservée à l’État français
-➤ Audit trimestriel par la DGRI (Ministère de l’Enseignement Supérieur)
-
-Conformité normative
-➤ Licence CC-BY-NC-ND 4.0 (texte intégral)
-➤ Alignement sur le Référentiel Général d’Amélioration de la Qualité (RGAQ)
-
-Résultats et Perspectives
-
-Validation du modèle par simulation PyTorch-Geometric
-➤ Unification des interactions fondamentales (χ² = 3.2×10⁻⁶ ± 0.7×10⁻⁶)
-➤ Prédiction des modes propres angulaires (σ = 0.412 μrad)
-➤ Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)
-
-Axes de développement
-
-➤ Télécharger la version stable
-➤ Accéder à la documentation technique
-➤ Consulter les prépublications
+Intégration des données Euclid : Interface avec les catalog
 
 
----
-
-Ce travail peut être susceptible de bénéficier d’une aide de l’État gérée par l’Agence Nationale de la Recherche au titre du programme Investissements d’Avenir (ANR-21-ESRE-0035).
-
-Conclusion
-
-∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l’univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques
 
 
 
