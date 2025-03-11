@@ -513,74 +513,104 @@ app.run_monte_carlo(distributed=True, n_workers=4)
  
 ❇️❇️❇️❇️
 
+---
 
-# <span style="color:#003399;">Conclusion</span>
+# Conclusion
 
-∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.  
+∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l’univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l’unification des interactions fondamentales.
 
-### <span style="color:#336699;">Contributions clés :</span>
-- <span style="color:#009999;">Intégration des données Euclid, JWST et Planck</span> pour une validation observationnelle  
-- <span style="color:#990033;">Formalisation géométrique</span> inspirée des connexions affines et des structures fibrées  
-- <span style="color:#6666CC;">Simulation haute performance</span> via Numba, PyTorch-Geometric et architectures HPC  
+## Feuille de Route Scientifique
 
-L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable aux expériences, garantissant une approche falsifiable et exploitable par la communauté scientifique.  
+### Version 6.0 (Q4 2024)
+- **Intégration des données Euclid** : Interface avec les catalogues photométriques de la mission spatiale ESA  
+- **Visualisation topologique** : Module d’analyse de variétés différentielles (Cartan-API)  
+- **Calcul tensoriel distribué** : Support MPI/CUDA pour architectures HPC  
+
+### Version 7.0 (2025)
+- **Extension cosmologique** : Intégration des contraintes Planck 2025  
+- **Optimisation algébrique** : Implémentation des algorithmes Gröbner  
+- **Validation expérimentale** : Pipeline CERN-LHC (ATLAS/CMS)  
 
 ---
 
-# <span style="color:#003399;">Feuille de Route Scientifique</span>  
+## Contributions Collaboratives
 
-## <span style="color:#336699;">Version 6.0 (Q4 2024)</span>  
-- <span style="color:#009999;">Intégration des données Euclid</span> : Interface avec les catalogues photométriques de la mission spatiale ESA  
-- <span style="color:#990033;">Visualisation topologique</span> : Module d'analyse de variétés différentielles (Cartan-API)  
-- <span style="color:#6666CC;">Calcul tensoriel distribué</span> : Support MPI/CUDA pour architectures HPC  
+[![Guide contributeur](https://img.shields.io/badge/PDF-Guide_contributeur-003399)](https://angular-theory.fr/docs/contrib_guide.pdf)
 
-## <span style="color:#336699;">Version 7.0 (2025)</span>  
-- <span style="color:#009999;">Extension cosmologique</span> : Intégration des contraintes Planck 2025  
-- <span style="color:#990033;">Optimisation algébrique</span> : Implémentation des algorithmes Gröbner  
-- <span style="color:#6666CC;">Validation expérimentale</span> : Pipeline CERN-LHC (ATLAS/CMS)  
+Processus standard conforme aux normes INRIA :
 
----
-
-# <span style="color:#003399;">Contributions Collaboratives</span>  
-
-[![Guide contributeur](https://img.shields.io/badge/PDF-Guide_contributeur-003399)](https://angular-theory.fr/docs/contrib_guide.pdf)  
-
-Processus standard conforme aux normes INRIA :  
 1. Fork du dépôt principal  
-git clone https://github.com/angular-theory/core.git  
-2. Création de branche thématique  
-git checkout -b refactor/[nom-de-la-fonctionnalite]  
-3. Soumission de Pull Request nécessitant :  
-Tests de non-régression (benchmark NumPy)  
-Documentation LaTeX conforme au template CNRS  
-Vérification par le comité scientifique  
+```bash
+git clone https://github.com/angular-theory/core.git
+
+2. Création de branche thématique
+
+
+
+git checkout -b refactor/[nom-de-la-fonctionnalite]
+
+3. Soumission de Pull Request nécessitant :
+
+Tests de non-régression (benchmark NumPy)
+
+Documentation LaTeX conforme au template CNRS
+
+Vérification par le comité scientifique
+
+
+
+
 
 ---
 
-<span style="color:#003399;">Gouvernance et Éthique</span>  
-<span style="color:#336699;">Clause de souveraineté (Art. L. 111-1 Code de la Recherche)</span>  
-Propriété intellectuelle réservée à l'État français  
-Audit trimestriel par la DGRI (Ministère de l'Enseignement Supérieur)  
-<span style="color:#336699;">Conformité normative</span>  
-Licence CC-BY-NC-ND 4.0 (texte intégral)  
-Alignement sur le Référentiel Général d'Amélioration de la Qualité (RGAQ)  
+Gouvernance et Éthique
+
+Clause de souveraineté (Art. L. 111-1 Code de la Recherche)
+
+Propriété intellectuelle réservée à l’État français
+
+Audit trimestriel par la DGRI (Ministère de l’Enseignement Supérieur)
+
+
+Conformité normative
+
+Licence CC-BY-NC-ND 4.0 (texte intégral)
+
+Alignement sur le Référentiel Général d’Amélioration de la Qualité (RGAQ)
+
+
 
 ---
 
-<span style="color:#003399;">Résultats et Perspectives</span>  
-<span style="color:#336699;">Validation du modèle par simulation PyTorch-Geometric</span>  
-Unification des interactions fondamentales (χ² = 3.2×10⁻⁶ ± 0.7×10⁻⁶)  
-Prédiction des modes propres angulaires (σ = 0.412 μrad)  
-Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)  
-<span style="color:#336699;">Axes de développement</span>  
-1. Télécharger la version stable  
-2. Accéder à la documentation technique  
-3. Consulter les prépublications  
+Résultats et Perspectives
+
+Validation du modèle par simulation PyTorch-Geometric
+
+Unification des interactions fondamentales (χ² = 3.2×10⁻⁶ ± 0.7×10⁻⁶)
+
+Prédiction des modes propres angulaires (σ = 0.412 μrad)
+
+Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)
+
+
+Axes de développement
+
+1. Télécharger la version stable
+
+
+2. Accéder à la documentation technique
+
+
+3. Consulter les prépublications
+
+
+
 
 ---
 
-Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).
+Ce travail peut être susceptible de bénéficier d’une aide de l’État gérée par l’Agence Nationale de la Recherche au titre du programme Investissements d’Avenir (ANR-21-ESRE-0035).
 
+---
 
 
 
