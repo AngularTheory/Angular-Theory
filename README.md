@@ -511,27 +511,11 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 📩 [Contact par email](mailto:souday.david.research@gmail.com)
 ```
  
-
-❇️❇️
-
-```
-
-### Lancer l’interface  
-Une fois installé, exécutez :  
-```bash
-python angular_theory.py
-```
-
-### Tester l’installation (optionnel, recommandé)  
-Pour vérifier que tout fonctionne :  
-```bash
-python angular_theory.py
 ```
 
 ---
-
-## Conclusion  
-∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.  
+ 
+∆ngular Theory 0.0, marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.  
 
 **Contributions clés :**  
 → Intégration des données Euclid, JWST et Planck pour une validation observationnelle  
@@ -543,6 +527,7 @@ L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable
 ---
 
 ## Feuille de Route Scientifique  
+
 **Version 6.0 (Q4 2024)**  
 → Intégration des données Euclid : Interface avec les catalogues photométriques de la mission spatiale ESA  
 → Visualisation topologique : Module d'analyse de variétés différentielles (Cartan-API)  
@@ -558,11 +543,11 @@ L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable
 ## Contributions Collaboratives  
 Le processus standard est conforme aux normes INRIA. Il inclut :  
 
-- Fork du dépôt principal  
-- Création de branche thématique  
-- Soumission de Pull Request nécessitant :  
-  → Tests de non-régression  
-  → Documentation LaTeX  
+Fork du dépôt principal  
+
+Création de branche thématique  
+
+Soumission de Pull Request nécessitant des tests de non-régression et une documentation LaTeX.  
 
 ---
 
@@ -587,6 +572,7 @@ La propriété intellectuelle est réservée à l'État français, avec un audit
 ## Financement  
 Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).  
 ```
+
 
 
 
