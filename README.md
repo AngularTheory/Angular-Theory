@@ -512,19 +512,19 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 ```
  
 
----
+Voici le texte reformaté pour une intégration directe en Markdown GitHub, en conservant strictement le contenu original :
 
-
+```markdown
 # <span style="color:#003399;">Conclusion</span>
 
-∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l’univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l’unification des interactions fondamentales.  
+∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.  
 
 ### <span style="color:#336699;">Contributions clés :</span>
 - <span style="color:#009999;">Intégration des données Euclid, JWST et Planck</span> pour une validation observationnelle  
 - <span style="color:#990033;">Formalisation géométrique</span> inspirée des connexions affines et des structures fibrées  
 - <span style="color:#6666CC;">Simulation haute performance</span> via Numba, PyTorch-Geometric et architectures HPC  
 
-L’objectif est de fournir un cadre théorique robuste, évolutif et confrontable aux expériences, garantissant une approche falsifiable et exploitable par la communauté scientifique.  
+L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable aux expériences, garantissant une approche falsifiable et exploitable par la communauté scientifique.  
 
 ---
 
@@ -532,7 +532,7 @@ L’objectif est de fournir un cadre théorique robuste, évolutif et confrontab
 
 ## <span style="color:#336699;">Version 6.0 (Q4 2024)</span>  
 - <span style="color:#009999;">Intégration des données Euclid</span> : Interface avec les catalogues photométriques de la mission spatiale ESA  
-- <span style="color:#990033;">Visualisation topologique</span> : Module d’analyse de variétés différentielles (Cartan-API)  
+- <span style="color:#990033;">Visualisation topologique</span> : Module d'analyse de variétés différentielles (Cartan-API)  
 - <span style="color:#6666CC;">Calcul tensoriel distribué</span> : Support MPI/CUDA pour architectures HPC  
 
 ## <span style="color:#336699;">Version 7.0 (2025)</span>  
@@ -551,75 +551,50 @@ Processus standard conforme aux normes INRIA :
 1. Fork du dépôt principal  
 ```bash
 git clone https://github.com/angular-theory/core.git
+```
 
-2. Création de branche thématique
-
-
-
+2. Création de branche thématique  
+```bash
 git checkout -b refactor/[nom-de-la-fonctionnalite]
+```
 
-3. Soumission de Pull Request nécessitant :
-
-
-
+3. Soumission de Pull Request nécessitant :  
+```
 Tests de non-régression (benchmark NumPy)
-
 Documentation LaTeX conforme au template CNRS
-
 Vérification par le comité scientifique
-
-
-
----
-
-<span style="color:#003399;">Gouvernance et Éthique</span>
-
-<span style="color:#336699;">Clause de souveraineté (Art. L. 111-1 Code de la Recherche)</span>
-
-Propriété intellectuelle réservée à l’État français
-
-Audit trimestriel par la DGRI (Ministère de l’Enseignement Supérieur)
-
-
-<span style="color:#336699;">Conformité normative</span>
-
-Licence CC-BY-NC-ND 4.0 (texte intégral)
-
-Alignement sur le Référentiel Général d’Amélioration de la Qualité (RGAQ)
-
-
+```
 
 ---
 
-<span style="color:#003399;">Résultats et Perspectives</span>
+<span style="color:#003399;">Gouvernance et Éthique</span>  
 
-<span style="color:#336699;">Validation du modèle par simulation PyTorch-Geometric</span>
+<span style="color:#336699;">Clause de souveraineté (Art. L. 111-1 Code de la Recherche)</span>  
+Propriété intellectuelle réservée à l'État français  
+Audit trimestriel par la DGRI (Ministère de l'Enseignement Supérieur)  
 
-Unification des interactions fondamentales (χ² = 3.2×10⁻⁶ ± 0.7×10⁻⁶)
-
-Prédiction des modes propres angulaires (σ = 0.412 μrad)
-
-Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)
-
-
-<span style="color:#336699;">Axes de développement</span>
-
-1. Télécharger la version stable
-
-
-2. Accéder à la documentation technique
-
-
-3. Consulter les prépublications
-
-
-
+<span style="color:#336699;">Conformité normative</span>  
+Licence CC-BY-NC-ND 4.0 (texte intégral)  
+Alignement sur le Référentiel Général d'Amélioration de la Qualité (RGAQ)  
 
 ---
 
-Ce travail peut être susceptible de bénéficier d’une aide de l’État gérée par l’Agence Nationale de la Recherche au titre du programme Investissements d’Avenir (ANR-21-ESRE-0035).
+<span style="color:#003399;">Résultats et Perspectives</span>  
+
+<span style="color:#336699;">Validation du modèle par simulation PyTorch-Geometric</span>  
+Unification des interactions fondamentales (χ² = 3.2×10⁻⁶ ± 0.7×10⁻⁶)  
+Prédiction des modes propres angulaires (σ = 0.412 μrad)  
+Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)  
+
+<span style="color:#336699;">Axes de développement</span>  
+1. Télécharger la version stable  
+2. Accéder à la documentation technique  
+3. Consulter les prépublications  
 
 ---
+
+Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).
+```
 
 
 
