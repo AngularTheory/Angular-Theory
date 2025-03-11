@@ -571,4 +571,10 @@ La propriété intellectuelle est réservée à l'État français, avec un audit
 Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035)
 
 
+Version 7.0 (2025)
+→ Extension cosmologique : Intégration des contraintes Planck 2025
+→ Optimisation algébrique : Implémentation des algorithmes Gröbner
+→ Validation expérimentale : Pipeline CERN-LHC (ATLAS/
+
+
 
