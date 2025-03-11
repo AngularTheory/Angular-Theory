@@ -514,22 +514,35 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 
 ❇️❇️
 
+```
 
-## Conclusion
+### Lancer l’interface  
+Une fois installé, exécutez :  
+```bash
+python angular_theory.py
+```
 
-∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.
+### Tester l’installation (optionnel, recommandé)  
+Pour vérifier que tout fonctionne :  
+```bash
+python angular_theory.py
+```
+
+---
+
+## Conclusion  
+∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.  
 
 **Contributions clés :**  
 → Intégration des données Euclid, JWST et Planck pour une validation observationnelle  
 → Formalisation géométrique inspirée des connexions affines et des structures fibrées  
 → Simulation haute performance via Numba, PyTorch-Geometric et architectures HPC  
 
-L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable aux expériences, garantissant une approche falsifiable et exploitable par la communauté scientifique.
+L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable aux expériences, garantissant une approche falsifiable et exploitable par la communauté scientifique.  
 
 ---
 
-## Feuille de Route Scientifique
-
+## Feuille de Route Scientifique  
 **Version 6.0 (Q4 2024)**  
 → Intégration des données Euclid : Interface avec les catalogues photométriques de la mission spatiale ESA  
 → Visualisation topologique : Module d'analyse de variétés différentielles (Cartan-API)  
@@ -538,13 +551,12 @@ L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable
 **Version 7.0 (2025)**  
 → Extension cosmologique : Intégration des contraintes Planck 2025  
 → Optimisation algébrique : Implémentation des algorithmes Gröbner  
-→ Validation expérimentale : Pipeline CERN-LHC (ATLAS/CMS)
+→ Validation expérimentale : Pipeline CERN-LHC (ATLAS/CMS)  
 
 ---
 
-## Contributions Collaboratives
-
-Le processus standard est conforme aux normes INRIA. Il inclut :
+## Contributions Collaboratives  
+Le processus standard est conforme aux normes INRIA. Il inclut :  
 
 - Fork du dépôt principal  
 - Création de branche thématique  
@@ -554,14 +566,12 @@ Le processus standard est conforme aux normes INRIA. Il inclut :
 
 ---
 
-## Gouvernance et Éthique
-
-La propriété intellectuelle est réservée à l'État français, avec un audit trimestriel par la DGRI. Le projet est sous licence CC-BY-NC-ND 4.0 et aligné sur le Référentiel Général d'Amélioration de la Qualité (RGAQ).
+## Gouvernance et Éthique  
+La propriété intellectuelle est réservée à l'État français, avec un audit trimestriel par la DGRI. Le projet est sous licence CC-BY-NC-ND 4.0 et aligné sur le Référentiel Général d'Amélioration de la Qualité (RGAQ).  
 
 ---
 
-## Résultats et Perspectives
-
+## Résultats et Perspectives  
 → Validation du modèle par simulation PyTorch-Geometric  
 → Unification des interactions fondamentales (χ² = 3.2×10⁻⁶ ± 0.7×10⁻⁶)  
 → Prédiction des modes propres angulaires (σ = 0.412 μrad)  
@@ -574,9 +584,10 @@ La propriété intellectuelle est réservée à l'État français, avec un audit
 
 ---
 
-## Financement
+## Financement  
+Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).  
+```
 
-Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).
 
 
 
