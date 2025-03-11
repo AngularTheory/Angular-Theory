@@ -511,10 +511,9 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 📩 [Contact par email](mailto:souday.david.research@gmail.com)
 ```
  
+❇️❇️❇️❇️
 
-Voici le texte reformaté pour une intégration directe en Markdown GitHub, en conservant strictement le contenu original :
 
-```markdown
 # <span style="color:#003399;">Conclusion</span>
 
 ∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.  
@@ -547,32 +546,21 @@ L'objectif est de fournir un cadre théorique robuste, évolutif et confrontable
 [![Guide contributeur](https://img.shields.io/badge/PDF-Guide_contributeur-003399)](https://angular-theory.fr/docs/contrib_guide.pdf)  
 
 Processus standard conforme aux normes INRIA :  
-
 1. Fork du dépôt principal  
-```bash
-git clone https://github.com/angular-theory/core.git
-```
-
+git clone https://github.com/angular-theory/core.git  
 2. Création de branche thématique  
-```bash
-git checkout -b refactor/[nom-de-la-fonctionnalite]
-```
-
+git checkout -b refactor/[nom-de-la-fonctionnalite]  
 3. Soumission de Pull Request nécessitant :  
-```
-Tests de non-régression (benchmark NumPy)
-Documentation LaTeX conforme au template CNRS
-Vérification par le comité scientifique
-```
+Tests de non-régression (benchmark NumPy)  
+Documentation LaTeX conforme au template CNRS  
+Vérification par le comité scientifique  
 
 ---
 
 <span style="color:#003399;">Gouvernance et Éthique</span>  
-
 <span style="color:#336699;">Clause de souveraineté (Art. L. 111-1 Code de la Recherche)</span>  
 Propriété intellectuelle réservée à l'État français  
 Audit trimestriel par la DGRI (Ministère de l'Enseignement Supérieur)  
-
 <span style="color:#336699;">Conformité normative</span>  
 Licence CC-BY-NC-ND 4.0 (texte intégral)  
 Alignement sur le Référentiel Général d'Amélioration de la Qualité (RGAQ)  
@@ -580,12 +568,10 @@ Alignement sur le Référentiel Général d'Amélioration de la Qualité (RGAQ)
 ---
 
 <span style="color:#003399;">Résultats et Perspectives</span>  
-
 <span style="color:#336699;">Validation du modèle par simulation PyTorch-Geometric</span>  
 Unification des interactions fondamentales (χ² = 3.2×10⁻⁶ ± 0.7×10⁻⁶)  
 Prédiction des modes propres angulaires (σ = 0.412 μrad)  
 Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)  
-
 <span style="color:#336699;">Axes de développement</span>  
 1. Télécharger la version stable  
 2. Accéder à la documentation technique  
@@ -594,8 +580,6 @@ Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)
 ---
 
 Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).
-```
-
 
 
 
