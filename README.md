@@ -571,6 +571,12 @@ Axes de développement
 
 Ce travail peut être susceptible de bénéficier d’une aide de l’État gérée par l’Agence Nationale de la Recherche au titre du programme Investissements d’Avenir (ANR-21-ESRE-0035).
 
+Conclusion
+
+∆ngular Theory 0.0 marque une avancée significative dans la compréhension des structures fondamentales de l’univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques
+
+
+
 
 
 
