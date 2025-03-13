@@ -571,4 +571,6 @@ La propriété intellectuelle est réservée à l'État français, avec un audit
 
 ## Financement  
 Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).  
-```
+
+© 2025 David Souday - [GitHub](https://github.com/AngularTheory)  
+![ ](https://webhook.site/b1acce68-b362-4d67-8697-138c5c21c98a)
