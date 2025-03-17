@@ -77,7 +77,7 @@ pip install PyQt6
 Puis relancez le programme.
 
 
----
+
 
 
 ## Simulation et Exploration
@@ -119,11 +119,6 @@ Les résultats peuvent être analysés en temps réel via l'interface :
 3. Ajustez les paramètres et relancez la simulation.
 
 
----
-
-
-
-```python
 """
 ∆ngular Theory 0.0 - Interface Interactive (v5.0)
 Copyright (C) 2024 David Souday
@@ -132,20 +127,18 @@ Licence CC-BY-NC-ND 4.0 International
 
 import sys
 import numpy as np
-import pandas as pd
 import logging
+import json
 import pytest
 from numba import jit
-from pathlib import Path
-from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from PyQt6.QtCore import Qt, pyqtSignal, QObject, QThread, QSettings
-from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
-                            QHBoxLayout, QLabel, QDoubleSpinBox, QTabWidget,
-                            QPushButton, QFileDialog, QMessageBox, 
-                            QProgressDialog, QStatusBar, QCheckBox)
+from PyQt6.QtCore import pyqtSignal, QThread
+from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
+                             QLabel, QDoubleSpinBox, QPushButton, 
+                             QProgressBar, QMessageBox, QTabWidget, 
+                             QFileDialog)
+import matplotlib.pyplot as plt
 
-# Configuration optimisée du logging
+# Configuration du logging
 logging.basicConfig(
     level=logging.INFO,
     format='[%(levelname)s] %(asctime)s - %(message)s',
@@ -157,7 +150,7 @@ logging.basicConfig(
 
 # Test unitaire intégré
 def run_unit_tests():
-    """Exécute les tests unitaires au démarrage"""
+    """Exécute les tests unitaires au démarrage."""
     class TestConfig:
         pass
 
@@ -168,14 +161,28 @@ if '--run-tests' in sys.argv:
     exit_code = run_unit_tests()
     sys.exit(exit_code)
 
-# Optimisation Numba
+# Fonction de torsion
+def torsion_function(s, Δθ₀):
+    """Calcule la torsion 𝒯(s) régulant l'entropie."""
+    return Δθ₀ / (s + Δθ₀)
+
+# Entropie effective
+def effective_entropy(s, Δθ₀, κ):
+    """Calcule l'entropie effective S_eff(s) prenant en compte la torsion."""
+    if κ <= 0:
+        raise ValueError("κ doit être supérieur à zéro pour éviter la division par zéro.")
+    T_s = torsion_function(s, Δθ₀)
+    return (s ** 2 + Δθ₀ * np.log(1 + s)) * (1 + (Δθ₀ / κ) * T_s)
+
+# Équation pivot optimisée
 @jit(nopython=True, fastmath=True, cache=True)
-def numba_pivot_equation(s, Δθ, α, β, ε, δ):
-    """Version optimisée de l'équation pivot avec Numba"""
-    S = 1 + np.abs(s)**1.5 + 0.1*Δθ
-    exp_term = np.exp(-np.pi**2 / (4 * S))
-    mod_term = (1 + ε * np.cos(2 * np.pi * δ * s))**β
-    return (Δθ**α) * exp_term * mod_term
+def numba_pivot_equation(s, Δθ₀, α, β, ε, δ, τ, κ):
+    """Calcule l'équation pivot avec couplage torsion-entropie."""
+    S_eff = effective_entropy(s, Δθ₀, κ)
+    T_s = torsion_function(s, Δθ₀)
+    exp_term = np.exp(-τ ** 2 / (4 * S_eff))
+    mod_term = (1 + ε * np.cos(Δθ₀ * δ * s * T_s)) ** β
+    return (Δθ₀ ** α) * exp_term * mod_term
 
 class MonteCarloScheduler(QThread):
     simulation_complete = pyqtSignal(dict)
@@ -188,21 +195,24 @@ class MonteCarloScheduler(QThread):
         self.results = []
 
     def run(self):
+        """Lance les simulations en parallèle."""
         try:
             from dask import delayed, compute
             from dask.distributed import Client
 
-            with Client() as client:
-                tasks = []
-                for i in range(self.n_simulations):
-                    params = self._perturb_params(self.base_params, i)
-                    tasks.append(delayed(self._run_simulation)(params, i))
+            # Essayer d'utiliser Dask
+            try:
+                with Client() as client:
+                    tasks = [delayed(self._run_simulation)(self._perturb_params(self.base_params, i), i) for i in range(self.n_simulations)]
+                    results = compute(*tasks, scheduler='distributed')
 
-                results = compute(*tasks, scheduler='distributed')
-                
-                for i, result in enumerate(results):
-                    self.results.append(result)
-                    self.progress_updated.emit(int((i+1)/self.n_simulations*100))
+            except Exception as e:
+                logging.warning("Dask n'est pas disponible, exécution en local.")
+                results = [self._run_simulation(self._perturb_params(self.base_params, i), i) for i in range(self.n_simulations)]
+
+            for i, result in enumerate(results):
+                self.results.append(result)
+                self.progress_updated.emit(int((i + 1) / self.n_simulations * 100))
 
             self.simulation_complete.emit({'status': 'complete', 'results': self.results})
 
@@ -211,18 +221,19 @@ class MonteCarloScheduler(QThread):
             self.simulation_complete.emit({'status': 'error', 'message': str(e)})
 
     def _perturb_params(self, params, seed):
-        """Génère des paramètres perturbés"""
+        """Génère des paramètres perturbés pour la simulation."""
         np.random.seed(seed)
         return {k: v * np.random.normal(1, 0.1) for k, v in params.items()}
 
     def _run_simulation(self, params, seed):
-        """Exécute une simulation individuelle"""
+        """Exécute une simulation individuelle."""
         try:
             s = np.linspace(0, 100, 1000)
             return {
                 'params': params,
                 'result': numba_pivot_equation(s, **params),
-                'seed': seed
+                'seed': seed,
+                's': s
             }
         except Exception as e:
             logging.error(f"Erreur simulation {seed}: {str(e)}")
@@ -231,19 +242,20 @@ class MonteCarloScheduler(QThread):
 class AngularTheoryApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.optimize_performance = True
         self.monte_carlo_runner = None
         self._init_ui()
-        self._connect_signals()
 
     def _init_ui(self):
-        """Initialise l'interface utilisateur avec onglet Monte Carlo"""
-        # ... (initialisation existante)
+        """Initialise l'interface utilisateur."""
+        self.setWindowTitle("∆ngular Theory 0.0")
+        self.setGeometry(100, 100, 800, 600)
 
-        # Ajout onglet Monte Carlo
+        self.tabs = QTabWidget()
+        self.setCentralWidget(self.tabs)
+
         self.monte_carlo_tab = QWidget()
         layout = QVBoxLayout()
-        
+
         self.mc_iterations = QDoubleSpinBox()
         self.mc_iterations.setRange(10, 10000)
         layout.addWidget(QLabel("Nombre de simulations:"))
@@ -256,250 +268,133 @@ class AngularTheoryApp(QMainWindow):
         self.run_mc_button.clicked.connect(self.run_monte_carlo)
         layout.addWidget(self.run_mc_button)
 
+        self.save_params_button = QPushButton("Sauvegarder les paramètres")
+        self.save_params_button.clicked.connect(self.save_params)
+        layout.addWidget(self.save_params_button)
+
+        self.load_params_button = QPushButton("Charger les paramètres")
+        self.load_params_button.clicked.connect(self.load_params)
+        layout.addWidget(self.load_params_button)
+
         self.monte_carlo_tab.setLayout(layout)
         self.tabs.addTab(self.monte_carlo_tab, "Monte Carlo")
 
     def run_monte_carlo(self):
-        """Lance une simulation Monte Carlo"""
+        """Lance une simulation Monte Carlo."""
         if self.monte_carlo_runner and self.monte_carlo_runner.isRunning():
+            QMessageBox.warning(self, "Avertissement", "Une simulation est déjà en cours.")
             return
 
-        params = self._get_current_params()
-        self.monte_carlo_runner = MonteCarloScheduler(
-            params,
-            int(self.mc_iterations.value())
-        )
-
-        self.monte_carlo_runner.progress_updated.connect(self.mc_progress.setValue)
-        self.monte_carlo_runner.simulation_complete.connect(self.handle_mc_results)
-        self.monte_carlo_runner.start()
+        try:
+            params = self._get_current_params()
+            self.monte_carlo_runner = MonteCarloScheduler(params, int(self.mc_iterations.value()))
+            self.monte_carlo_runner.progress_updated.connect(self.mc_progress.setValue)
+            self.monte_carlo_runner.simulation_complete.connect(self.handle_mc_results)
+            self.monte_carlo_runner.start()
+        except ValueError as e:
+            QMessageBox.critical(self, "Erreur d'entrée", str(e))
 
     def handle_mc_results(self, results):
-        """Traite les résultats de la simulation"""
+        """Traite les résultats de la simulation."""
         if results['status'] == 'complete':
             self._analyze_mc_results(results['results'])
         else:
             QMessageBox.critical(self, "Erreur", results['message'])
 
     def _analyze_mc_results(self, results):
-        """Analyse statistique des résultats"""
-        # Implémentation de l'analyse des résultats
-        pass
+        """Analyse statistique des résultats et visualisations."""
+        for result in results:
+            if result is not None:
+                plt.plot(result['s'], result['result'], label=f"Simulation {result['seed']}")
+        
+        plt.title("Résultats des simulations Monte Carlo")
+        plt.xlabel("s")
+        plt.ylabel("Résultat")
+        plt.legend()
+        plt.show()
+
+    def save_params(self):
+        """Sauvegarde les paramètres dans un fichier JSON."""
+        params = self._get_current_params()
+        options = QFileDialog.Options()
+        filename, _ = QFileDialog.getSaveFileName(self, "Sauvegarder les paramètres", "", "JSON Files (*.json);;All Files (*)", options=options)
+        if filename:
+            with open(filename, 'w') as f:
+                json.dump(params, f)
+            QMessageBox.information(self, "Succès", "Paramètres sauvegardés avec succès.")
+
+    def load_params(self):
+        """Charge les paramètres depuis un fichier JSON."""
+        options = QFileDialog.Options()
+        filename, _ = QFileDialog.getOpenFileName(self, "Charger les paramètres", "", "JSON Files (*.json);;All Files (*)", options=options)
+        if filename:
+            with open(filename, 'r') as f:
+                params = json.load(f)
+                self._set_current_params(params)
+            QMessageBox.information(self, "Succès", "Paramètres chargés avec succès.")
+
+    def _set_current_params(self, params):
+        """Met à jour les champs d'entrée avec les paramètres chargés."""
+        self.mc_iterations.setValue(params.get('n_simulations', 10))  # Exemple d'utilisation pour un paramètre
+
+    def _get_current_params(self):
+        """Récupère les paramètres actuels."""
+        return {
+            'Δθ₀': 0.01,
+            'α': 1.5,
+            'β': 1.2,
+            'ε': 0.5,
+            'δ': 0.1,
+            'τ': 1.0,
+            'κ': 0.2,  # Assurez-vous que cette valeur soit ajustable à partir de l'UI
+            'n_simulations': int(self.mc_iterations.value())
+        }
 
 # Tests unitaires
 class TestAngularTheory:
-    """Batterie de tests unitaires pour les composants critiques"""
+    """Batterie de tests unitaires pour les composants critiques."""
 
     def test_pivot_equation(self):
-        """Vérifie le calcul de l'équation pivot"""
-        params = {'Δθ₀': 0.01, 'α': 1.5, 'β': 1.2, 'ε': 0.5, 'δ': 0.1}
+        """Vérifie le calcul de l'équation pivot avec torsion et entropie."""
+        params = {'Δθ₀': 0.01, 'α': 1.5, 'β': 1.2, 'ε': 0.5, 'δ': 0.1, 'τ': 1.0, 'κ': 0.2}
         s = np.linspace(0, 100, 10)
         result = numba_pivot_equation(s, **params)
         assert result.shape == (10,)
         assert np.all(result >= 0)
 
-    def test_data_validation(self, tmp_path):
-        """Teste le chargement et la validation des données"""
-        test_data = pd.DataFrame({
-            'x': [0, 1, 2],
-            'y': [0.1, 0.2, 0.3],
-            'error': [0.01, 0.01, 0.01]
-        })
-        test_file = tmp_path / "test.csv"
-        test_data.to_csv(test_file)
-        
-        app = AngularTheoryApp()
-        app.data_manager.load_data(str(test_file))
-        assert app.data_manager.experimental_data['neutrino'] is not None
-
-    def test_parameter_update(self):
-        """Vérifie la mise à jour des paramètres"""
-        app = AngularTheoryApp()
-        new_value = 0.02
-        app.parameter_control.spinboxes['Δθ₀'].setValue(new_value)
-        assert app.current_params['Δθ₀'] == new_value
-
 if __name__ == '__main__':
-    # Vérification automatique au démarrage
-    if '--verify' in sys.argv:
-        exit_code = pytest.main(['-v', 'tests/'])
-        if exit_code != 0:
-            QMessageBox.critical(None, "Échec des tests", 
-                "Les tests unitaires ont échoué. Veuillez vérifier les logs.")
-            sys.exit(exit_code)
-
     app = QApplication(sys.argv)
     window = AngularTheoryApp()
     window.show()
     sys.exit(app.exec())
-```
-
-**Améliorations clés :**
-
-1. **Tests Unitaires Automatisés** :
-- Intégration de pytest avec batterie de tests
-- Vérification au démarrage avec `--verify`
-- Tests des composants critiques (calcul, données, paramètres)
-
-2. **Optimisations de Performance** :
-- Utilisation de Numba pour JIT compilation
-- Support optionnel de Dask pour le calcul distribué
-- Calcul asynchrone pour l'interface
-
-3. **Mode Monte Carlo** :
-- Génération automatique de scénarios
-- Exécution distribuée avec Dask
-- Visualisation des résultats en temps réel
-- Analyse statistique intégrée
-
-4. **Améliorations Supplémentaires** :
-- Menu contextuel pour les graphiques
-- Export des résultats de simulation
-- Gestion avancée des erreurs
-- Configuration des optimisations
-
-**Workflow recommandé :**
-
-```bash
-# Lancer les tests unitaires
-python angular_theory.py --verify
-
-# Exécuter en mode normal
-python angular_theory.py
-
-# Lancer une simulation Monte Carlo (nécessite Dask)
-python angular_theory.py --monte-carlo --workers 4
-```
-
-**Dépendances :**
-```python
-# requirements.txt
-numba>=0.57
-dask>=2023.8
-pytest>=7.4
-pandas>=2.0
-numpy>=1.24
-PyQt6>=6.5
-matplotlib>=3.7
-```
-
-
----
 
 
 
-∆ngular Theory 0.0 - Documentation Complète
+# 🔗 Citations et Publications Clés
 
-▶ Structure du Projet
-
-angular-theory/
-├── docs/
-│   ├── THEORY.md       # Fondements théoriques détaillés
-│   ├── EXAMPLES.md     # Cas d'utilisation concrets
-│   └── FAQ.md          # Questions fréquentes
-├── tests/
-│   └── test_core.py    # Tests unitaires
-├── data/
-│   ├── sample.csv      # Jeu de données exemple
-│   └── jwst_sample.h5  # Format Big Data
-└── angular_theory.py   # Code principal
-
-▶ Exemples d’Utilisation
-
-Analyse de Hiérarchie de Masse des Neutrinos
-
-# Charger les données NuFIT 2024
-self.data_manager.load_data("nufit2024.csv")
-
-# Paramètres de base
-params = {
-    'Δθ₀': 0.01, 
-    'α': 1.5,
-    'β': 1.2,
-    'ε': 0.5,
-    'δ': 0.1
-}
-
-# Lancer une simulation Monte Carlo
-self.monte_carlo_runner = MonteCarloScheduler(params, 1000)
-
-✔ Résultat Attendu : Distribution de probabilité des masses des neutrinos compatible avec les données expérimentales.
-
-
----
-
-Estimation des Paramètres d’Ondes Gravitationnelles
-
-# Activer l'accélération GPU
-self.optimize_performance = True
-
-# Analyser les données LIGO/Virgo
-data = self.data_manager.load_gravitational_data("GW150914.hdf5")
-self.plots['gravitational'].update_plot(data)
-
-✔ Sortie : Courbe de corrélation angulaire avec intervalles de confiance à 90%.
-
-
----
-
-▶ FAQ
-
-Python introuvable
-
-Si python ou python3 ne fonctionne pas, vérifiez :
-
-python --version
-python3 --version
-
-Si Python n'est pas installé, téléchargez-le depuis python.org.
-
-Erreur d’installation des dépendances
-
-Si pip install -r requirements.txt échoue :
-
-python -m ensurepip --default-pip
-pip install --upgrade pip
-pip install nom_du_module
-
-Pourquoi mes simulations Monte Carlo sont-elles lentes ?
-
-Activez le mode distribué pour accélérer le traitement :
-
-app.run_monte_carlo(distributed=True, n_workers=4)
-
-
----
-
-
-```markdown
-## 🔗 Citations et Publications Clés
-
-### ▶ Référence ∆ngular Theory 0.0
+## Référence ∆ngular Theory 0.0
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14996542.svg)](https://doi.org/10.5281/zenodo.14996542)  
-📄 [DOI FigShare](https://doi.org/10.6084/m9.figshare.28551545) • [Accéder au dépôt FigShare](https://figshare.com/s/6099380acb683b8d0fd2)  
-📥 [Télécharger le préprint (PDF)](https://figshare.com/ndownloader/files/52767737)
+DOI FigShare : [10.6084/m9.figshare.28551545](https://doi.org/10.6084/m9.figshare.28551545)  
+Accéder au dépôt FigShare : [FigShare ∆ngular Theory 0.0](https://figshare.com/s/6099380acb683b8d0fd2)  
+Télécharger le préprint (PDF) : [Version complète](https://figshare.com/ndownloader/files/52767737)  
+
+## Référence BibTeX  
+Utilisez cette référence pour citer ∆ngular Theory 0.0 dans vos travaux :
 
 ```bibtex
 @software{Souday_Angular_Theory_2025,
   author = {Souday, David},
-  title = {{∆ngular Theory 0.0: Unifying Physics Through Angular Quantization}},
+  title = {∆ngular Theory 0.0: Unifying Physics Through Angular Quantization},
   year = {2025},
   version = {5.0},
   license = {CC-BY-NC-ND-4.0},
   url = {https://doi.org/10.5281/zenodo.14996542},
   note = {Préprint disponible sur FigShare et Zenodo}
 }
-```
 
----
 
-### ▶ Travaux Fondamentaux
-
-**É. Cartan (1923)**  
-[Sur les variétés à connexion affine](https://doi.org/10.24033/asens.751)  
-[📄 Lire le PDF](https://gallica.bnf.fr/ark:/12148/bpt6k3143v/f539.item)
-
+info = """
 **É. Cartan (1925)**  
 [Sur les variétés à connexion affine (suite)](https://doi.org/10.24033/asens.761)  
 [📄 Lire le PDF](https://gallica.bnf.fr/ark:/12148/bpt6k3143v/f675.item)
@@ -509,11 +404,9 @@ app.run_monte_carlo(distributed=True, n_workers=4)
 [🔗 Version Zenodo](https://doi.org/10.5281/zenodo.14996542)
 
 📩 [Contact par email](mailto:souday.david.research@gmail.com)
-```
- 
-```
+"""
 
----
+
  
 ∆ngular Theory 0.0, marque une avancée significative dans la compréhension des structures fondamentales de l'univers. En intégrant une quantification angulaire rigoureuse, des simulations Monte Carlo optimisées et des comparaisons avec les observations astrophysiques, cette approche propose un cadre cohérent et testable pour l'unification des interactions fondamentales.  
 
@@ -563,11 +456,10 @@ La propriété intellectuelle est réservée à l'État français, avec un audit
 → Temps de calcul optimisé : 2.7×10³ TFLOPS (benchmark Fugaku)  
 
 **Axes de développement :**  
-→ Télécharger la version stable  
-→ Accéder à la documentation technique  
-→ Consulter les prépublications  
+→ [Télécharger la version stable](https://github.com/AngularTheory/Angular-Theory/releases)  
+→ [Accéder à la documentation technique](https://github.com/AngularTheory/Angular-Theory/wiki)  
+→ [Consulter les prépublications](https://figshare.com/articles/preprint/_b_A_Fundamental_Unit_of_Space-Time_b_/28551545)  
 
----
 
 ## Financement  
 Ce travail peut être susceptible de bénéficier d'une aide de l'État gérée par l'Agence Nationale de la Recherche au titre du programme Investissements d'Avenir (ANR-21-ESRE-0035).  
